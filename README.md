@@ -4,8 +4,11 @@
 本项目基于淘宝移动端用户行为数据，分析用户 PV（页面访问量）和 UV（独立用户数）在不同日期和小时的变化趋势，挖掘用户活跃规律，为运营活动和营销策略提供参考。
 
 ## 数据概览
-- train_user_sample.csv：用户行为日志（user_id, item_id, behavior_type, item_category, date, hour）  
-- train_item_sample.csv：商品信息（item_id, item_category）  
+- train_user_sample.csv：用户行为日志（user_id, item_id, behavior_type, item_category, date, hour）
+- ![天池原用户表](images/tianchi_User.png)  
+- train_item_sample.csv：商品信息（item_id, item_category）
+- ![天池原商品表](images/tianchi_item.png)
+- 数据来源 https://tianchi.aliyun.com/dataset/46
 - 字段说明：
   | 字段 | 含义 |
   |------|------|
@@ -44,7 +47,9 @@ UPDATE train_user u
 LEFT JOIN train_item i
 ON u.item_id = i.item_id
 SET u.item_category = i.item_category;
-``` 
+```
+得到处理后的表train_user，导入powerbi:
+![train_user](images/train_user.png)
 
 ## 数据分析 & 可视化
 ## Part1. 流量分析
