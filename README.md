@@ -71,3 +71,10 @@ SET u.item_category = i.item_category;
 - 结论：
   - 17~22 点晚间高峰，用户集中访问  
   - 凌晨低谷，可考虑系统维护或资源优化
+ 
+- 
+**3. 不同用户行为小时级访问趋势**
+- 指标：PV, UV  
+- 方法：将 train_user 按 hour 聚合 PV / UV
+- 图表：
+- ![PV/UV 按小时](images/pv_uv_by_hour.png) 
