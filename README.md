@@ -5,9 +5,9 @@
 
 ## 数据概览
 - train_user_sample.csv：用户行为日志（user_id, item_id, behavior_type, item_category, date, hour）
-- ![天池原用户表](images/tianchi_User.png)  
+- ![天池原用户表](tianchi_User.png)  
 - train_item_sample.csv：商品信息（item_id, item_category）
-- ![天池原商品表](images/tianchi_item.png)
+- ![天池原商品表](tianchi_item.png)
 - 数据来源 https://tianchi.aliyun.com/dataset/46
 - 字段说明：
   | 字段 | 含义 |
@@ -49,7 +49,7 @@ ON u.item_id = i.item_id
 SET u.item_category = i.item_category;
 ```
 得到处理后的表train_user，导入powerbi:
-![train_user](images/train_user.png)
+![train_user](train_user.png)
 
 ## 数据分析 & 可视化
 ## Part1. 流量分析
@@ -177,10 +177,14 @@ SET u.item_category = i.item_category;
 - 转化率在平时一天中呈小幅波动，高峰可能出现在晚间，但幅度有限。  
 - 这一图主要用于理解平时用户转化行为规律，为活动日对比提供背景。
 
-**示意图**：  
+**示意图**：
+-平时转化率日期折线图：
 ![平时转化率折线图(日期)](images/conversion_trends1.png)
+-平时转化率日期折线图(除购买次数/(收藏+加购))：
 ![平时转化率折线图(日期)](images/conversion_trends2.png)
+-平时转化率小时折线图：
 ![平时转化率折线图(小时)](images/conversion_trends3.png)
+-平时转化率小时折线图(除购买次数/(收藏+加购))：
 ![平时转化率折线图(小时)](images/conversion_trends4.png)
 
 **业务启示**：  
