@@ -39,6 +39,24 @@ SET date = STR_TO_DATE(time, '%Y-%m-%d %H'),
     hour = CAST(SUBSTRING_INDEX(time, ' ', -1) AS UNSIGNED);
 
 -- 合并商品分类
+
+
+---
+
+```markdown
+# 数据分析 & 可视化
+
+## Part1. 流量分析
+
+### 1. 日级访问趋势
+- 指标：PV（页面访问量）、UV（独立用户数）
+- 图表：pv_uv_by_date.png
+- 结论：12 月访问量暴增，说明年末促销活动影响
+
+### 2. 小时级访问趋势
+- 指标：PV / UV
+- 图表：pv_uv_by_hour.png
+- 结论：晚间 17-22 点为访问高峰，适合投放活动
 UPDATE train_user u
 LEFT JOIN train_item i
 ON u.item_id = i.item_id
