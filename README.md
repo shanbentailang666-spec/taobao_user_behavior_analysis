@@ -17,10 +17,13 @@
   | hour | 小时（0-23） |
 
 ## 数据清洗
+
 - 检查空值和异常值
 - user 表 time 拆分为 date + hour
-- item 表 item_category 按 item_id 对应到 train_user 表
-- SQL 示例：
+- item 表 item_category 按 item_id 对应到 train_user
+
+SQL 示例：
+
 ```sql
 -- 检查异常值
 SELECT behavior_type AS b
@@ -41,5 +44,28 @@ UPDATE train_user u
 LEFT JOIN train_item i
 ON u.item_id = i.item_id
 SET u.item_category = i.item_category;
+``` 
 
+## 数据分析 & 可视化
 
+我们先从宏观的流量分析入手，看看用户访问行为的规律。主要关注以下指标：
+
+- **PV（Page View）**：页面访问量，基于用户每次刷新或打开页面统计
+- **UV（Unique Visitor）**：独立访客，一个用户多次访问只计一次
+
+### Part1. 流量分析
+**1. 日级访问趋势**
+-指标：PV、UV
+-方法：将 train_user 按 date 聚合 PV / UV
+-图表：pv_uv_by_date.png
+-结论：
+  -12 月访问量暴增，可能为年末促销或活动高峰
+  -11 月活跃度下降，可能与节假日或活动缺失有关
+
+**2. 小时级访问趋势**
+-指标：PV、UV
+-方法：将 train_user 按 hour 聚合 PV / UV
+-图表：pv_uv_by_hour.png
+-结论：
+  -17–22 点晚间高峰，用户集中访问
+  -凌晨低谷，可考虑系统维护或资源优化
