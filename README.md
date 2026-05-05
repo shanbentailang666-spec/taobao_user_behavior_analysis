@@ -54,18 +54,20 @@ SET u.item_category = i.item_category;
 - **UV（Unique Visitor）**：独立访客，一个用户多次访问只计一次
 
 ### Part1. 流量分析
-**1. 日级访问趋势**
--指标：PV、UV
--方法：将 train_user 按 date 聚合 PV / UV
--图表：pv_uv_by_date.png
--结论：
-  -12 月访问量暴增，可能为年末促销或活动高峰
-  -11 月活跃度下降，可能与节假日或活动缺失有关
+**1. 日级访问趋势**  
+- 指标：PV, UV  
+- 方法：将 train_user 按 date 聚合 PV / UV  
+- 图表：  
+![PV/UV 按日期](images/pv_uv_by_date.png)  
+- 结论：
+  - 12 月访问量暴增，可能为年末促销或活动高峰  
+  - 11 月活跃度下降，可能与节假日或活动缺失有关
 
-**2. 小时级访问趋势**
--指标：PV、UV
--方法：将 train_user 按 hour 聚合 PV / UV
--图表：pv_uv_by_hour.png
--结论：
-  -17–22 点晚间高峰，用户集中访问
-  -凌晨低谷，可考虑系统维护或资源优化
+**2. 小时级访问趋势**  
+- 指标：PV, UV  
+- 方法：将 train_user 按 hour 聚合 PV / UV  
+- 图表：  
+![PV/UV 按小时](images/pv_uv_by_hour.png)  
+- 结论：
+  - 17~22 点晚间高峰，用户集中访问  
+  - 凌晨低谷，可考虑系统维护或资源优化
